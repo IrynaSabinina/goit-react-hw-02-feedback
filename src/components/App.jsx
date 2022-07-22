@@ -3,7 +3,13 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
+import styles from '../components/FeedbackOptions/FeedbackOptions.module.css';
 
+const options = [
+  { name: 'good', title: 'Good', className: styles.btnGood },
+  { name: 'neutral', title: 'Neutral', className: styles.btnNeutral },
+  { name: 'bad', title: 'Bad', className: styles.btnBad },
+];
 export class App extends Component {
   state = {
     good: 0,
@@ -11,29 +17,11 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleGood = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
+  handleClick = event => {
+    const { name } = event.target;
+    this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
 
-  handleNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-
-  handleBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-  };
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -51,9 +39,8 @@ export class App extends Component {
       <div>
         <Section title="Please leave Feedback">
           <FeedbackOptions
-            onGood={this.handleGood}
-            onNeutral={this.handleNeutral}
-            onBad={this.handleBad}
+            options={options}
+            onLeaveFeedback={this.handleClick}
           />
         </Section>
 
