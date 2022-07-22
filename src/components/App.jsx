@@ -27,11 +27,7 @@ export class App extends Component {
   };
 
   positivePercentage = () => {
-    return Math.round(
-      (this.state.good /
-        (this.state.good + this.state.neutral + this.state.bad)) *
-        100
-    );
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
   render() {
