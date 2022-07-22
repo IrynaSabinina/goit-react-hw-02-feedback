@@ -1,0 +1,10 @@
+button {
+  min-width: 60px;
+  height: auto;
+  padding: 10px;
+  margin-left: 15px;
+  border: none;
+}
+button:hover {
+  transform: scale(1.2);
+}

@@ -8,8 +8,10 @@ export const Statistics = ({
   total,
   positivePercentage = 0,
 }) => {
-  return (
-    <div className="dropdaun-statistic">
+  return !total ? (
+    ' '
+  ) : (
+    <div>
       <p>Good : {good}</p>
       <p>Neutral : {neutral}</p>
       <p>Bad : {bad}</p>
