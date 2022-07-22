@@ -1,0 +1,13 @@
+.section {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  font-family: 'Roboto';
+  font-weight: 20px;
+  color: aqua;
+}
